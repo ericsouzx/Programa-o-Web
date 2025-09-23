@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>domJavaScriptContador</title>
+    <style>
+            body {
+            font-family: Arial, sans-serif;
+            }
+            tado, #contador {
+                 margin-top: 20px; 
+            }
+            button {
+             margin: 5px; 
+             color: black;
+             background-color: blue;
+             color: white;
+            }
+
+    </style>
+</head>
+<body>
+    <h1>JavaScriptDOM</h1>
+    
+    <section>
+        <h2>Entrada de Mensagem</h2>
+        <input type="text" id="mensagemInput" placeholder="Digite uma mensagem">
+        <br>
+        <button id="mostrarBtn">Mostrar</button>
+        <button id="limparBtn">Limpar</button>
+        
+        <div id="exibicao"></div>
+    </section>
+    
+    <section>
+        <h2>Contador</h2>
+        <div id="contador">0</div>
+        <button id="incBtn" class="botao-contador">+</button>
+        <button id="decBtn" class="botao-contador">-</button>
+        <button id="zeroBtn" class="botao-contador">Zerar</button>
+    </section>
+
+    <script>
+
+        let contador =0;
+
+        function atualizarContador() {
+            const elementoContador = document.getElementById('contador');
+            elementoContador.textContent = contador;
+        }
+
+        document.getElementById('incBtn').addEventListener('click', function() {
+            contador++;
+            atualizarContador();
+        });
+
+        document.getElementById('decBtn').addEventListener('click', function() {
+            contador--;
+            atualizarContador();
+        });
+
+        document.getElementById('zeroBtn').addEventListener('click', function() {
+            contador = 0;
+            atualizarContador();
+        });
+
+        document.getElementById('mostrarBtn').addEventListener('click', function() {
+            const input = document.getElementById('mensagemInput');
+            const mensagem = input.value.trim();
+
+            if (mensagem === '') {
+                alert('Por favor, digite uma mensagem!');
+                return;
+            }
+
+            const novoParagrafo = document.createElement('p');
+            novoParagrafo.textContent = mensagem;
+
+            const exibicao = document.getElementById('exibicao');
+
+            exibicao.appendChild(novoParagrafo);
+
+            input.value = '';
+        });
+
+        document.getElementById('limparBtn').addEventListener('click', function() {
+            const exibicao = document.getElementById('exibicao');
+            exibicao.innerHTML = '';
+        });
+    </script>
+</body>
+</html>
