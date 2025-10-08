@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <title>Portfólio de Eric Souza</title>
+</head>
+
+<body>
+
+    <header>
+        <nav> 
+                <a href="#home">Início</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#servicos">Serviços</a>
+                <a href="#projetos">Projetos</a>
+                <a href="#skills">Skills</a>
+                <a href="#contato">Contato</a>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h2>Olá! eu sou Eric Souza</h2>
+        <p>Estudante de análise e desenvolvimento de sistemas</p>
+
+    </section>
+    <section id="sobre">
+        <h2>Sobre Mim</h2>
+        <p>
+        <img src="img/fotoperfil.jpeg" alt="Foto de Eric Souza" width="200">
+            Sou estudante de Análise e Desenvolvimento de Sistemas, em busca da primeira oportunidade na área de tecnologia. Tenho sólida formação teórica adquirida ao longo do curso, com foco em lógica de programação, banco de dados, desenvolvimento orientado a objetos e metodologias ágeis.
+            Apesar de ainda não possuir experiência profissional, destaco meu empenho em projetos acadêmicos e pessoais, nos quais exercitei a criação de sistemas, modelagem de dados e práticas de programação. Tenho facilidade em aprender novas tecnologias, trabalhar em equipe e resolver problemas de forma analítica.
+        </p>
+    </section>
+
+    <section id="servicos">
+        <h2>Serviços</h2>
+
+        <article>
+            <div class="Box-Servicos">
+                <div class="icon-servicos">
+                    <h3><img src="img/icons8-manutenção-50.png" alt="icone de Manutenção"> Manutenção de computadores</h3>
+                    <p>Manutenção de computadores no geral. Exemplo: Formatação, limpeza, troca de peças, etc</p>
+                </div>
+            </div>
+
+            <div class="Box-Desenvolvimento Web">
+                <div class="icon-Desenvolvimento">
+                    <h3><img src="img/icons8-programação-50.png" alt="icone de programação"> Desenvolvimento Web</h3>
+                    <p>Criação de sites pessoais ou para empresas.</p>
+                </div>
+            </div>
+
+        </article>
+        
+    </section>
+
+    <section id="projetos">
+        <h2>Projetos Recentes</h2>
+        <article>
+            <h3>Criação deste site como meu Portfólio</h3>
+            <p>O projeto consiste em um site desenvolvido como parte do processo de aprendizagem em programação web durante a faculdade. O objetivo principal foi aplicar na prática os conceitos estudados em sala de aula, como HTML, CSS e JavaScript.
+                O site foi estruturado com foco em usabilidade e organização de conteúdo, permitindo ao usuário navegar de forma intuitiva pelas páginas.
+                Além da parte técnica, o desenvolvimento envolveu boas práticas de design, uso de responsividade para adaptação a diferentes dispositivos e aplicação dos princípios de acessibilidade. O projeto serviu como base para consolidar conhecimentos e preparar para desafios mais complexos no desenvolvimento de aplicações web.</p>
+        </article>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+
+        <article>
+            <div class="box-hard-skills">
+                <h3>Hard Skills</h3>
+                <li>HTML/CSS</li>
+                <li>JavaScript</li>
+                <li>SQL</li>
+                <li>Manutenção de computadores</li>
+            </div>
+
+            <div class="box-soft-Skills">
+                <h3>Soft Skills</h3>
+                <li>Trabalho em Equipe</li>
+                <li>Comunicação</li>
+                <li>Gestão de tempo</li>
+                <li>Resolução de problemas</li>
+            </div>
+        </article>
+        
+    </section>
+
+    <section id="contato">
+            <h2>Entre em Contato</h2>
+    <article>
+          <form id="contact-form">
+
+            <input type="hidden" name="time" value="">
+            <input type="text" name="user_name" placeholder="Seu Nome" required />
+            <input type="email" name="user_email" placeholder="Seu E-mail" required />
+            <textarea name="message" placeholder="Sua Mensagem" required></textarea>
+            <button type="submit">Enviar Mensagem</button>
+         </form>
+        <ul>
+                 <li><a href="https://linkedin.com/in/eric-souza-083314237">LinkedIn</a></li>
+                 <li><a href="https://github.com/ericsouzx">GitHub</a></li>
+        </ul>
+    </article>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Eric Souza. Todos os direitos reservados.</p>
+    </footer>
+
+ <script type="text/javascript">
+    
+  (function(){
+    emailjs.init("DpcYh6YP6S88z32tk"); 
+  })();
+
+  document.getElementById("contact-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    emailjs.sendForm("service_qx50w0o", "template_sgth7h8", this)
+      .then(function(response) {
+        alert("Mensagem enviada com sucesso!");
+        console.log("EmailJS:", response);
+        document.getElementById("contact-form").reset();
+      }, function(error) {
+        alert("Erro ao enviar mensagem. Tente novamente mais tarde.");
+        console.error("Erro EmailJS:", error);
+      });
+  });
+</script>
+</body>
+</html>
